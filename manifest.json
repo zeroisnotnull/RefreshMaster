@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "РефрешМастер",
+  "version": "1.0.0",
+  "description": "Автоматически обновляйте и отслеживайте веб-страницы - Создано Browserx.ru",
+  "permissions": [
+    "tabs",
+    "storage",
+    "notifications",
+    "alarms",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "96": "icon96.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "96": "icon96.png"
+  }
+}

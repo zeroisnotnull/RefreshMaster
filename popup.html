@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>РефрешМастер</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+
+    <header class="headert">
+        <h1>РефрешМастер</h1>
+        <p class="subtitle">Автоматически обновляйте и отслеживайте веб-страницы</p>
+      </header>
+   
+    
+    <div class="section">
+      <h3>Настройки обновления</h3>
+      <div class="input-group">
+        <label>Режим обновления:</label>
+        <select id="refreshMode">
+          <option value="default">Интервал по умолчанию</option>
+          <option value="random">Случайный интервал</option>
+          <option value="countdown">Таймер обратного отсчета</option>
+        </select>
+      </div>
+
+      <div id="defaultSettings">
+        <div class="input-group">
+          <label>Интервал (секунды):</label>
+          <input type="number" id="interval" min="2" value="30">
+        </div>
+      </div>
+
+      <div id="randomSettings" style="display: none;">
+        <div class="input-group">
+          <label>Минимальный интервал (секунды):</label>
+          <input type="number" id="minInterval" min="2" value="10">
+        </div>
+        <div class="input-group">
+          <label>Максимальный интервал (секунды):</label>
+          <input type="number" id="maxInterval" min="2" value="60">
+        </div>
+      </div>
+
+      <div id="countdownSettings" style="display: none;">
+        <div class="input-group">
+          <label>Начать через (минуты):</label>
+          <input type="number" id="countdownTime" min="2" value="5">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Количество обновлений:</label>
+        <input type="number" id="refreshCount" min="0" value="0">
+        <span class="hint">(0 для бесконечного)</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Настройки мониторинга</h3>
+      <div class="input-group">
+        <label>Режим мониторинга:</label>
+        <select id="monitorMode">
+          <option value="none">Отключен</option>
+          <option value="appear">Появление текста</option>
+          <option value="disappear">Исчезновение текста</option>
+          <option value="any">Любое изменение</option>
+        </select>
+      </div>
+
+      <div id="monitorSettings" style="display: none;">
+        <div class="input-group">
+          <label>Ключевые слова:</label>
+          <input type="text" id="keywords" placeholder="Ключевые слова через запятую">
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="autoClick">
+          <label for="autoClick">Автоматический клик при совпадении</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Дополнительные настройки</h3>
+      <div class="checkbox-group">
+        <input type="checkbox" id="showTimer">
+        <label for="showTimer">Показывать визуальный таймер</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="stopOnInteraction">
+        <label for="stopOnInteraction">Остановить при взаимодействии с страницей</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="hardRefresh">
+        <label for="hardRefresh">Полная перезагрузка (мимо кэша)</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="notifications">
+        <label for="notifications">Включить уведомления</label>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="startBtn" class="primary">Начать</button>
+      <button id="stopBtn" class="secondary" disabled>Остановить</button>
+    </div>
+
+    <div class="action-logs"><br>
+        <center><span class="actionlog">Журнал действий</span></center>
+        <div class="clear-logs">
+          <button id="clearLogsBtn" class="secondary">Очистить журнал</button>
+        </div>
+        <table class="logs-table">
+          <thead>
+            <tr>
+              <th>Время</th>
+              <th>Тип</th>
+              <th>Детали</th>
+            </tr>
+          </thead>
+          <tbody id="actionLogs">
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rating-section">
+        <div class="rating-text">Оцените нас в Chrome Web Store</div>
+        <div class="stars">
+          <span class="star" data-rating="1">★</span>
+          <span class="star" data-rating="2">★</span>
+          <span class="star" data-rating="3">★</span>
+          <span class="star" data-rating="4">★</span>
+          <span class="star" data-rating="5">★</span>
+        </div>
+      </div>
+    <div class="footer">
+        Все права защищены, 2025 - <a href="https://browserx.ru/?ref=AutoRefresh" target="_blank">BrowserX</a>
+      </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
